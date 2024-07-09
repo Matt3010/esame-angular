@@ -1,3 +1,3 @@
 export const environment = {
-  APIURL: '/api'
+  APIURL: 'https://esame-laravel.onrender.com'
 };

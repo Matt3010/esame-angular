@@ -1,7 +1,0 @@
-{
-  "/api/*": {
-    "target": "https://esame-laravel.onrender.com/api",
-    "secure": true,
-    "changeOrigin": true
-  }
-}
