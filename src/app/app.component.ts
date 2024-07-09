@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {environment} from "../environments/environment";
 
@@ -7,15 +7,19 @@ import {environment} from "../environments/environment";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   constructor(
     private http: HttpClient
   ) {
-    this.http.get(environment.APIURL + '/test').subscribe((res)=> {
-      alert(res)
-    });
+
   }
 
+
+  ngOnInit() {
+    this.http.get(environment.APIURL + '/test').subscribe((res) => {
+      console.log(res);
+    });
+  }
 
 }
