@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
 
   ngOnInit() {
-    this.http.get(environment.APIURL + '/test').subscribe((res) => {
+    this.http.get(environment.APIURL + '/test2').subscribe((res) => {
       console.log(res);
     });
   }
