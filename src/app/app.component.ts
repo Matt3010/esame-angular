@@ -12,7 +12,7 @@ export class AppComponent {
   constructor(
     private http: HttpClient
   ) {
-    this.http.get(environment.APIURL).subscribe((res)=> {
+    this.http.get(environment.APIURL + '/test').subscribe((res)=> {
     });
   }
 
