@@ -13,7 +13,6 @@ export class AppComponent {
     private http: HttpClient
   ) {
     this.http.get(environment.APIURL).subscribe((res)=> {
-
     });
   }
 
