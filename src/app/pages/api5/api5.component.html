@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-auto">
+    <label>Id da eliminare</label>
+  </div>
+  <div class="col-12">
+    <input [formControl]="richiestaID" class="form-control" type="number">
+  </div>
+  <button (click)="delete()" [disabled]="richiestaID.invalid" class="btn btn-danger">Delete</button>
+</div>

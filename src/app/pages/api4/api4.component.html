@@ -1,0 +1,56 @@
+<!-- api3.component.html -->
+
+<div class="row">
+  <div class="col-auto">
+    <label>Id da modificare</label>
+  </div>
+  <div class="col-12">
+    <input [formControl]="richiestaID" class="form-control" type="number">
+  </div>
+</div>
+
+
+<form [formGroup]="nuovaRichiestaForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="CognomeNomeRichiedente">Cognome e Nome del Richiedente:</label>
+    <input class="form-control" type="text" id="CognomeNomeRichiedente" formControlName="CognomeNomeRichiedente">
+    <div *ngIf="isInvalid('CognomeNomeRichiedente')" class="error-message">
+      Cognome e Nome del Richiedente è richiesto.
+    </div>
+  </div>
+
+  <div>
+    <label for="DataInserimentoRichiesta">Data di Inserimento Richiesta:</label>
+    <input class="form-control" type="date" id="DataInserimentoRichiesta" formControlName="DataInserimentoRichiesta">
+    <div *ngIf="isInvalid('DataInserimentoRichiesta')" class="error-message">
+      Data di Inserimento Richiesta è richiesta.
+    </div>
+  </div>
+
+  <div>
+    <label for="Importo">Importo:</label>
+    <input class="form-control" type="number" id="Importo" formControlName="Importo">
+    <div *ngIf="isInvalid('Importo')" class="error-message">
+      Importo è richiesto.
+    </div>
+  </div>
+
+  <div>
+    <label for="NumeroRate">Numero di Rate:</label>
+    <input class="form-control" type="text" id="NumeroRate" formControlName="NumeroRate">
+    <div *ngIf="isInvalid('NumeroRate')" class="error-message">
+      Numero di Rate deve essere 6, 12, 18, 24, 48 o 60.
+    </div>
+  </div>
+
+  <button [disabled]="nuovaRichiestaForm.invalid" class="btn btn-primary mt-2" type="submit">Invia Richiesta</button>
+</form>
+
+<!-- Stili CSS per gli errori -->
+<style>
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+</style>
