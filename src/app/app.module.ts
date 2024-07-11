@@ -15,6 +15,7 @@ import { Api5Component } from './pages/api5/api5.component';
 import { Api6Component } from './pages/api6/api6.component';
 import { Api7Component } from './pages/api7/api7.component';
 import { Api8Component } from './pages/api8/api8.component';
+import { AutiCardComponent } from './components/auti-card/auti-card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { Api8Component } from './pages/api8/api8.component';
     Api5Component,
     Api6Component,
     Api7Component,
-    Api8Component
+    Api8Component,
+    AutiCardComponent
   ],
   imports: [
     BrowserModule,

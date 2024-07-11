@@ -1,0 +1,9 @@
+<div class="m-3 p-2 rounded-2" *ngIf="data" style="background-color: #efefef">
+  <div *ngFor="let key of data | keyvalue">
+    <br>
+    <strong>{{ key.key }}:</strong> <br>
+    <span *ngIf="key.key === 'DataInserimentoRichiesta' || key.key === 'created_at' || key.key === 'updated_at'">{{ key.value | date:'short' }}</span>
+    <span *ngIf="key.key === 'Importo'">{{ key.value | currency }}</span>
+    <span *ngIf="key.key !== 'DataInserimentoRichiesta' && key.key !== 'created_at' && key.key !== 'updated_at' && key.key !== 'Importo'">{{ key.value }}</span>
+  </div>
+</div>

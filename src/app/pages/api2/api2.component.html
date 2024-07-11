@@ -7,31 +7,10 @@
   </div>
 </div>
 
-<div *ngIf="richieste$ | async as richieste; else loading"
-     style="border: solid #cbcbcb 1px; border-radius: 8px; overflow-x: auto">
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th>RichiestaID</th>
-      <th>CognomeNomeRichiedente</th>
-      <th>DataInserimentoRichiesta</th>
-      <th>Importo</th>
-      <th>NumeroRate</th>
-      <th>created_at</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr *ngFor="let carta of richieste">
-      <td>{{ carta.RichiestaID }}</td>
-      <td>{{ carta.CognomeNomeRichiedente }}</td>
-      <td>{{ carta.DataInserimentoRichiesta | date:'shortDate' }}</td>
-      <td>{{ carta.Importo | currency }}</td>
-      <td>{{ carta.NumeroRate }}</td>
-      <td>{{ carta.created_at | date:'shortDate' }}</td>
-    </tr>
-    </tbody>
-  </table>
-
+<div *ngIf="richieste$ | async as richieste; else loading" class="row">
+  <div *ngFor="let richiesta of richieste" class="col">
+    <app-auti-card [data]="richiesta"></app-auti-card>
+  </div>
 </div>
 
 <ng-template #loading>
