@@ -4,16 +4,19 @@ background: linear-gradient(-110deg, rgb(236,236,236) 0%, rgb(243,246,255) 100%)
     <span class="fw-bold">Identificativo: </span>{{data['offertaLavoroID']}}
   </div>
 
-<div class="mt-5">
-  <div *ngFor="let key of data | keyvalue">
-    <div *ngIf="key.key !== 'offertaLavoroID'">
-    <br>
-    <strong class="key">{{ key.key | uppercase}}</strong> <br>
-    <span class="text-truncate d-inline-block" style="max-width: 200px" *ngIf="key.key === 'dataInserimento'">{{ key.value | date:'short' }}</span>
-    <span class="text-truncate d-inline-block" style="max-width: 200px" *ngIf="key.key === 'retribuzioneLorda'">{{ key.value | currency:'€' }}</span>
-    <span class="text-truncate d-inline-block" style="max-width: 200px" *ngIf="key.key !== 'dataInserimento' && key.key !== 'retribuzioneLorda' && key.key !== 'offertaLavoroID'">{{ key.value }}</span>
+  <div class="mt-5 row ps-5">
+    <div *ngFor="let key of data | keyvalue" class="col-auto">
+      <div *ngIf="key.key !== 'offertaLavoroID'">
+        <br>
+        <strong class="key">{{ key.key | uppercase}}</strong> <br>
+        <span class="text-truncate d-inline-block" style="max-width: 200px"
+              *ngIf="key.key === 'dataInserimento'">{{ key.value | date: 'dd/MM/YYYY' }}</span>
+        <span class="text-truncate d-inline-block" style="max-width: 200px"
+              *ngIf="key.key === 'retribuzioneLorda'">{{ key.value | currency:'€' }}</span>
+        <span class="text-truncate d-inline-block" style="max-width: 200px"
+              *ngIf="key.key !== 'dataInserimento' && key.key !== 'retribuzioneLorda' && key.key !== 'offertaLavoroID'">{{ key.value }}</span>
+      </div>
+    </div>
   </div>
-  </div>
-</div>
 
 </div>
