@@ -18,7 +18,7 @@ export class Api5EsameComponent {
   }
 
   searchText: FormControl = new FormControl(undefined, []);
-  limit: FormControl = new FormControl(null, [Validators.min(0), this.onlyIntegerValidator()]);
+  limit: FormControl = new FormControl(0, [Validators.min(0), this.onlyIntegerValidator()]);
 
   onlyIntegerValidator(): ValidatorFn {
     return (control: AbstractControl): { [key: string]: any } | null => {

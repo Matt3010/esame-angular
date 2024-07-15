@@ -1,9 +1,9 @@
-<h3>API 4</h3>
+<h3 class="fw-bold">API 4</h3>
 
-<div class="container">
-  <div class="row">
-    <div class="col-5">
-      <label for="input">Inserisci l' ID dell' offerta da eliminare:</label>
+
+<div class="row bg-body-tertiary p-3 rounded-4">
+    <div class="col">
+      <label for="input" class="fw-bold">Inserisci l' ID dell' offerta da eliminare:</label>
       <input id="input" [formControl]="offertaLavoroID" class="form-control" type="number">
 
       <div *ngIf="isInvalid()" class="error-message mb-4">
@@ -13,7 +13,6 @@
       <button [disabled]="offertaLavoroID.invalid" (click)="delete()" class="btn btn-danger my-2">Elimina</button>
     </div>
   </div>
-</div>
 
 
 

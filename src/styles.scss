@@ -15,24 +15,18 @@ input {
 
 
 a {
-
-
-
   text-decoration: none;
   color: black;
   padding: 5px;
   border-radius: 4px;
+
   &:hover {
     background-color: #cbcbcb;
     transition: background-color 0.3s;
   }
-  &:not(:hover){
+
+  &:not(:hover) {
     background-color: transparent;
     transition: background-color 0.3s;
   }
-}
-
-.active{
-  background-color: #d0d0d0 !important;
-  color: black;
 }

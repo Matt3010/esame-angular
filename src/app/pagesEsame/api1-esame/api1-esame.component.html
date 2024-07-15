@@ -1,25 +1,36 @@
-<h3>API 1</h3>
+<h3 class="fw-bold">API 1</h3>
 
-<div class="container">
-  <div class="row">
-    <div class="col-5">
-      <label for="input">Inserisci il numero massimo di richieste che si desidera visulizzare:</label>
-      <input id="input" [formControl]="maxRichieste" class="form-control" type="number">
-      <div *ngIf="isInvalid()" class="error-message mb-4">
-        Offerta di lavoro ID è invalido (Campo obbligatorio, Deve essere un numero).
-      </div>
+<div class="row bg-body-tertiary rounded-4 p-3">
+  <div class="col">
+    <label for="input" class="fw-bold">Inserisci il numero massimo di richieste che si desidera visulizzare (0 per
+      vederli tutti):</label>
+    <input id="input" [formControl]="maxRichieste" class="form-control" type="number">
+    <div *ngIf="isInvalid()" class="error-message mb-4">
+      Quantità invalida (Deve essere un numero positivo).
     </div>
   </div>
 </div>
 
 
-<div *ngIf="offerte$ | async as richieste; else loading" class="row row-cols-3">
-  <div *ngFor="let richiesta of richieste" class="col">
-    <app-auti-card [data]="richiesta"></app-auti-card>
+<div *ngIf="offerte$ | async as richieste; else loading" class="row">
+  <div *ngIf="richieste.length > 0; else zeroFound">
+    <div *ngFor="let richiesta of richieste" class="col m-0">
+      <app-auti-card [data]="richiesta"></app-auti-card>
+    </div>
   </div>
+
 </div>
 <ng-template #loading>
-  <div class="position-absolute fw-bold d-flex justify-content-center align-items-center p-4" style="top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 50%; aspect-ratio: 1/1; background-color: aquamarine">Loading...</div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-auto fw-bold d-flex justify-content-center align-items-center p-4"
+         style="width: 100px; height:100px; border-radius: 50%; aspect-ratio: 1/1; background-color: aquamarine">
+      Loading...
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #zeroFound>
+  <div class="fw-bold d-flex justify-content-center align-items-center p-4">Nessuna offerta trovata</div>
 </ng-template>
 
 

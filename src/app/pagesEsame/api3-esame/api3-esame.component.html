@@ -1,6 +1,6 @@
-<h3>API 3</h3>
+<h3 class="fw-bold">API 3</h3>
 
-<form [formGroup]="editForm" (submit)="onSubmit()" class="row d-flex flex-column">
+<form [formGroup]="editForm" (submit)="onSubmit()" class="row d-flex rounded-4 flex-column bg-body-tertiary p-3">
   <div class="col my-2">
     <label class="fw-bold">Offerta di Lavoro ID</label>
     <input formControlName="offertaLavoroID" class="form-control" type="text">
@@ -43,7 +43,7 @@
   </div>
 
   <div class="col my-2">
-    <button [disabled]="editForm.invalid" class="btn btn-primary" type="submit">Crea nuova offerta di lavoro
+    <button [disabled]="editForm.invalid" class="btn btn-primary" type="submit">Aggiorna offerta offerta di lavoro
     </button>
   </div>
 

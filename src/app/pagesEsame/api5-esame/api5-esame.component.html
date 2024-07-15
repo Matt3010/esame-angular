@@ -1,45 +1,51 @@
-<h3>API 5</h3>
+<h3 class="fw-bold">API 5</h3>
 
-<div class="container my-4">
+<div class="bg-body-tertiary rounded-4 p-3">
+
   <div class="row">
-    <div class="col-5">
-      <label for="input">Dichiara la quantità di offerte che si vogliono visualizzare:</label>
+    <div class="col">
+      <label for="input" class="fw-bold">Inserisci il numero massimo di richieste che si desidera visulizzare (0 per
+        vederli tutti):</label>
       <input id="input" [formControl]="limit" class="form-control" type="number">
       <div *ngIf="isInvalid(1)" class="error-message mb-4">
-        Il campo è invalido (Deve essere un numero).
+        Quantità invalida (Deve essere un numero positivo).
       </div>
     </div>
   </div>
-</div>
 
-<div class="container">
   <div class="row">
-    <div class="col-5">
-      <label for="input">Inserisci il testo da filtrare (titolo o descrizione):</label>
+    <div class="col">
+      <label for="input" class="fw-bold">Inserisci il testo da filtrare (titolo o descrizione):</label>
       <input id="input" [formControl]="searchText" class="form-control" type="text">
     </div>
   </div>
-  <button (click)="doQuery()" [disabled]="searchText.invalid || limit.invalid" class="btn btn-primary my-2">Cerca</button>
+  <button (click)="doQuery()" [disabled]="searchText.invalid || limit.invalid" class="btn btn-primary my-4">Cerca
+  </button>
 </div>
-
-
 
 
 <div *ngIf="offerteFilterd$ | async as richieste; else loading" class="row">
   <div *ngIf="richieste.length > 0; else zeroFound">
-    <div *ngFor="let richiesta of richieste" class="col">
+    <div *ngFor="let richiesta of richieste" class="col m-0">
       <app-auti-card [data]="richiesta"></app-auti-card>
     </div>
   </div>
 
 </div>
 <ng-template #loading>
-  <div class="position-absolute fw-bold d-flex justify-content-center align-items-center p-4" style="bottom: 0%; left: 50%; transform: translate(-50%, -50%); border-radius: 50%; aspect-ratio: 1/1; background-color: aquamarine">Loading...</div>
-</ng-template>
-<ng-template #zeroFound>
-  <div class="fw-bold d-flex justify-content-center align-items-center p-4">Nessuna offerta trovata per i parametri inseriti...</div>
+  <div class="row justify-content-center mt-3">
+    <div class="col-auto fw-bold d-flex justify-content-center align-items-center p-4"
+         style="width: 100px; height:100px; border-radius: 50%; aspect-ratio: 1/1; background-color: aquamarine">
+      Loading...
+    </div>
+  </div>
 </ng-template>
 
+<ng-template #zeroFound>
+  <div class="fw-bold d-flex justify-content-center align-items-center p-4">Nessuna offerta trovata per i parametri
+    inseriti...
+  </div>
+</ng-template>
 
 
 <!-- Stili CSS per gli errori -->

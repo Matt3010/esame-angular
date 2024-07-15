@@ -11,7 +11,7 @@ import {debounceTime} from "rxjs";
 export class Api1EsameComponent {
 
   offerte$ = this.esameService.offerte$;
-  maxRichieste: FormControl = new FormControl(undefined, [Validators.min(0), this.onlyIntegerValidator()]);
+  maxRichieste: FormControl = new FormControl(0, [Validators.min(0), this.onlyIntegerValidator()]);
 
   constructor(
     private esameService: EsameService
