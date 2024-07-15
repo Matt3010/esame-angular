@@ -1,0 +1,53 @@
+<h3>API 5</h3>
+
+<div class="container my-4">
+  <div class="row">
+    <div class="col-5">
+      <label for="input">Dichiara la quantità di offerte che si vogliono visualizzare:</label>
+      <input id="input" [formControl]="limit" class="form-control" type="number">
+      <div *ngIf="isInvalid(1)" class="error-message mb-4">
+        Il campo è invalido (Deve essere un numero).
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <label for="input">Inserisci il testo da filtrare (titolo o descrizione):</label>
+      <input id="input" [formControl]="searchText" class="form-control" type="text">
+    </div>
+  </div>
+  <button (click)="doQuery()" [disabled]="searchText.invalid || limit.invalid" class="btn btn-primary my-2">Cerca</button>
+</div>
+
+
+
+
+<div *ngIf="offerteFilterd$ | async as richieste; else loading" class="row">
+  <div *ngIf="richieste.length > 0; else zeroFound">
+    <div *ngFor="let richiesta of richieste" class="col">
+      <app-auti-card [data]="richiesta"></app-auti-card>
+    </div>
+  </div>
+
+</div>
+<ng-template #loading>
+  <div class="position-absolute fw-bold d-flex justify-content-center align-items-center p-4" style="top: 50%; left: 50%; transform: translate(-50%, -50%); border-radius: 50%; aspect-ratio: 1/1; background-color: aquamarine">Loading...</div>
+</ng-template>
+<ng-template #zeroFound>
+  <div class="fw-bold d-flex justify-content-center align-items-center p-4">Nessuna offerta trovata per i parametri inseriti...</div>
+</ng-template>
+
+
+
+<!-- Stili CSS per gli errori -->
+<style>
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+</style>
+

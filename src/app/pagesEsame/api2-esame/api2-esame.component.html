@@ -1,0 +1,53 @@
+<h3>API 2</h3>
+
+<form [formGroup]="nuovaOffertaForm" (submit)="onSubmit()" class="row d-flex flex-column">
+  <div class="col my-2">
+    <label class="fw-bold">Titolo</label>
+    <input formControlName="titolo" class="form-control" type="text">
+    <div *ngIf="isInvalid('titolo')" class="error-message">
+      Il titolo è invalido (Minimo 1 carattere. Campo obbligatorio).
+    </div>
+  </div>
+
+  <div class="col my-2">
+    <label class="fw-bold">Breve descrizione</label>
+    <input formControlName="descrizioneBreve" class="form-control" type="text">
+    <div *ngIf="isInvalid('descrizioneBreve')" class="error-message">
+      La descrizione è invalida (Minimo 1 carattere, massimo 255. Campo obbligatorio).
+    </div>
+  </div>
+
+  <div class="col my-2">
+    <label class="fw-bold">Data di inserimento</label>
+    <input formControlName="dataInserimento" class="form-control" type="date">
+    <div *ngIf="isInvalid('dataInserimento')" class="error-message">
+      La data è invalida (Campo obbligatorio, Controlla la validità della data).
+    </div>
+  </div>
+
+  <div class="col my-2">
+    <label class="fw-bold">Retribuzione Lorda</label>
+    <input class="form-control" formControlName="retribuzioneLorda" step="0.25" type="number">
+    <div
+      *ngIf="isInvalid('retribuzioneLorda')" class="error-message">
+      La retribuzione lorda è invalida (Valore minimo: 1, Campo obbligatorio, Solo valori numerici).
+    </div>
+  </div>
+
+  <div class="col my-2">
+    <button [disabled]="nuovaOffertaForm.invalid" class="btn btn-primary" type="submit">Crea nuova offerta di lavoro
+    </button>
+  </div>
+
+
+</form>
+
+
+<!-- Stili CSS per gli errori -->
+<style>
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+</style>

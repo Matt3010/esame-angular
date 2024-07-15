@@ -1,0 +1,28 @@
+<h3>API 4</h3>
+
+<div class="container">
+  <div class="row">
+    <div class="col-5">
+      <label for="input">Inserisci l' ID dell' offerta da eliminare:</label>
+      <input id="input" [formControl]="offertaLavoroID" class="form-control" type="number">
+
+      <div *ngIf="isInvalid()" class="error-message mb-4">
+        Offerta di lavoro ID è invalido (Campo obbligatorio, Deve essere un numero).
+      </div>
+
+      <button [disabled]="offertaLavoroID.invalid" (click)="delete()" class="btn btn-danger my-2">Elimina</button>
+    </div>
+  </div>
+</div>
+
+
+
+<!-- Stili CSS per gli errori -->
+<style>
+  .error-message {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+</style>
+
