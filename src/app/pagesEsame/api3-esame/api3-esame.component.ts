@@ -21,7 +21,7 @@ export class Api3EsameComponent {
       titolo: ['', [Validators.required, Validators.minLength(1)]],
       descrizioneBreve: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(255)]],
       dataInserimento: ['', [Validators.required, this.dateValidator()]], // Aggiunta del validatore per data
-      retribuzioneLorda: ['', [Validators.required, this.onlyNumbersValidator()]]
+      retribuzioneLorda: ['', [Validators.required, this.onlyNumbersValidator(), Validators.min(1)]]
     });
   }
 
