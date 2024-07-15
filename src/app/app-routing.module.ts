@@ -18,7 +18,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'api1'
+    redirectTo: 'api1Esame'
   },
   {
     path: 'api1',
