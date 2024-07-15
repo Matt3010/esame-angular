@@ -69,7 +69,7 @@ export class EsameService {
       if (err.status === 500) {
         alert(err.error.error)
       } else if (err.status === 422) {
-        alert(err.message)
+        alert(err.error.message)
       } else if (err.status === 404) {
         alert('Offerta non trovata, controlla l\' ID');
       }
