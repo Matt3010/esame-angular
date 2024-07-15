@@ -5,3 +5,34 @@
 
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+
+input {
+  border-radius: 8px;
+  border: solid gray 1px;
+  padding: 10px;
+}
+
+
+a {
+
+
+
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+  border-radius: 4px;
+  &:hover {
+    background-color: #cbcbcb;
+    transition: background-color 0.3s;
+  }
+  &:not(:hover){
+    background-color: transparent;
+    transition: background-color 0.3s;
+  }
+}
+
+.active{
+  background-color: #d0d0d0 !important;
+  color: black;
+}

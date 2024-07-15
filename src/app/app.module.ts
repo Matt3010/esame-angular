@@ -16,6 +16,11 @@ import { Api6Component } from './pages/api6/api6.component';
 import { Api7Component } from './pages/api7/api7.component';
 import { Api8Component } from './pages/api8/api8.component';
 import { AutiCardComponent } from './components/auti-card/auti-card.component';
+import { Api1EsameComponent } from './pagesEsame/api1-esame/api1-esame.component';
+import { Api2EsameComponent } from './pagesEsame/api2-esame/api2-esame.component';
+import { Api3EsameComponent } from './pagesEsame/api3-esame/api3-esame.component';
+import { Api4EsameComponent } from './pagesEsame/api4-esame/api4-esame.component';
+import { Api5EsameComponent } from './pagesEsame/api5-esame/api5-esame.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +34,13 @@ import { AutiCardComponent } from './components/auti-card/auti-card.component';
     Api6Component,
     Api7Component,
     Api8Component,
-    AutiCardComponent
-  ],
+    AutiCardComponent,
+    Api1EsameComponent,
+    Api2EsameComponent,
+    Api3EsameComponent,
+    Api4EsameComponent,
+    Api5EsameComponent,
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

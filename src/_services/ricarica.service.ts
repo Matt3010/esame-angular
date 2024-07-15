@@ -52,7 +52,9 @@ export class RicaricaService {
   }
 
   api4(modificaRichiesta: any, richiestaID: number) {
-    this.http.post(this.APIURL + '/api4', {...modificaRichiesta, richiestaID: richiestaID}).subscribe((res: any) => {
+    this.http.post(this.APIURL + 'api4/?richiestaID=' + richiestaID, {
+      ...modificaRichiesta,
+    }).subscribe((res: any) => {
       this.api1();
       alert('Richiesta aggiornata con successo')
     }, (err: any) => {
@@ -96,7 +98,7 @@ export class RicaricaService {
     this.http.post(this.APIURL + '/api7', {
       DataMax: DataMax,
       DataMin: DataMin,
-     }).subscribe((res: any) => {
+    }).subscribe((res: any) => {
       this.text$.next(res.sommaImporti);
     });
   }
@@ -106,7 +108,7 @@ export class RicaricaService {
     this.http.post(this.APIURL + '/api8', {
       DataMax: DataMax,
       DataMin: DataMin,
-     }).subscribe((res: any) => {
+    }).subscribe((res: any) => {
       this.text$.next(res.mediaRate);
     });
   }

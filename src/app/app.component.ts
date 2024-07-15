@@ -1,25 +1,11 @@
-import {Component, OnInit} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../environments/environment";
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
 
-  constructor(
-    private http: HttpClient
-  ) {
-
-  }
-
-
-  ngOnInit() {
-    this.http.get(environment.APIURL + '/tests').subscribe((res) => {
-      console.log(res);
-    });
-  }
 
 }
